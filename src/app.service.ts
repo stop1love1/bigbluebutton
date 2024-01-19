@@ -5,9 +5,9 @@ import * as fs from 'fs';
 export class AppService {
     constructor() {}
 
-    async getSubdirectories(path: string): Promise<any> {
+    async getSubdirectories(name: string): Promise<any> {
         try {
-            const directories = await fs.promises.readdir(path, {
+            const directories = await fs.promises.readdir(name, {
                 withFileTypes: true,
             });
             const subdirectories = directories.filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);

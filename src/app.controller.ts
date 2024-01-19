@@ -12,7 +12,9 @@ export class AppController {
         type: String,
         required: false,
     })
-    getSubdirectories(@Query('path') path?: string): Promise<any> {
-        return this.appService.getSubdirectories(path ? path : process.env.LEARNING_DASHBOARD_PATH);
+    getSubdirectories(@Query('name') name?: string): Promise<any> {
+        return this.appService.getSubdirectories(
+            name ? `${process.env.LEARNING_DASHBOARD_PATH}/${name}` : process.env.LEARNING_DASHBOARD_PATH,
+        );
     }
 }
