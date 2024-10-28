@@ -24,7 +24,7 @@ export class AppService {
             const content = await fs.promises.readFile(`${process.env.LEARNING_DASHBOARD_PATH}/${filePath}`, 'utf-8');
             return content;
         } catch (error) {
-            throw error;
+            return null;
         }
     }
 }
